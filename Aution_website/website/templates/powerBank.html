@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ 
+<head>
+  <title>Power Banks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .powerbank-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .powerbank-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .powerbank-image {
+      width: 250px;
+      margin-right: 20px;
+    }
+    
+    .powerbank-details {
+      flex-grow: 1;
+    }
+    
+    .powerbank-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .powerbank-price {
+      color: #555;
+      margin-bottom: 5px;
+    }
+    
+    .powerbank-features {
+      color: #888;
+    }
+        /* Popup Styles */
+        .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: none;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .popup-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .popup-input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    
+    .popup-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    /* Popup Styles */
+    .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: none;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .popup-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .popup-input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    
+    .popup-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <!-- <h1>Hello, world!</h1> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Power Bank</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a> -->
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+  <ul class="powerbank-list">
+    <li class="powerbank-item">
+      <img src="{{ url_for('static', filename='powerbank/Ambrane 20000mAh Power Bank.jpg') }}" class="powerbank-items">
+      <!-- <img class="powerbank-image" src="powerbank/Ambrane 20000mAh Power Bank.jpg" alt="powerbank 1"> -->
+      <div class="powerbank-details">
+        <h2 class="powerbank-title">Ambrane 20000mAh Power Bank</h2>
+        <p class="powerbank-price">Rs 1,899</p>
+        <p class="powerbank-features">-20W BoostedSpeed<br>
+            -20000mAh Lithium Polymer Battery<br>
+            -Quick Charge 3.0 & Power Delivery Technology<br>
+            -Output: 2 USB & 1 Type C , Input: 20W Type C</p>
+        <a href="#" class="powerBank-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="powerbank-item">
+      <img src="{{ url_for('static', filename='powerbank/MI Power Bank 3i.jpg') }}" class="powerbank-items">
+      <!-- <img class="powerbank-image" src="powerbank/MI Power Bank 3i.jpg" alt="powerbank 2"> -->
+      <div class="powerbank-details">
+        <h2 class="powerbank-title">MI Power Bank 3i</h2>
+        <p class="powerbank-price">RS 2,149</p>
+        <p class="powerbank-features">-20000mAh Lithium Polymer battery<br>
+          -18W Fast Charging<br>
+          -Triple port output<br>
+          -Dual input port Micro-USB/USB-C, Charging Time : 6.9 hours<br>
+          -Power Delivery<br>
+          -Advanced 12 Layer chip protection</p>
+        <a href="#" class="powerBank-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="powerbank-item">
+      <img src="{{ url_for('static', filename='powerbank/MI 10000mAh Lithium Ion.jpg') }}" class="powerbank-items">
+      <!-- <img class="powerbank-image" src="powerbank/MI 10000mAh Lithium Ion.jpg" alt="powerbank 3"> -->
+      <div class="powerbank-details">
+        <h2 class="powerbank-title">MI 10000mAh Lithium Ion</h2>
+        <p class="powerbank-price">RS 1,699</p>
+        <p class="powerbank-features">Feature 1, Feature 2, Feature 3</p>
+        <a href="#" class="powerBank-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="powerbank-item">
+      <img src="{{ url_for('static', filename='powerbank/SYSKA Power Bank 10000mah.jpg') }}" class="powerbank-items">
+      <!-- <img class="powerbank-image" src="powerbank/SYSKA Power Bank 10000mah.jpg" alt="powerbank 4"> -->
+      <div class="powerbank-details">
+        <h2 class="powerbank-title">SYSKA Power Bank 10000mah</h2>
+        <p class="powerbank-price">RS 8999</p>
+        <p class="powerbank-features">-Quick Charging Portable Charger Power bank high capacity. The 10000mAh power bank could charge your phone at least 2-3 times, Suitable for business, travel, going out, you don't have to worry about your phone low battery.<br>
+            -【12 Layers of Protection】The Portable charger adopt 12 Layers protections techniques which prevents power bank overcharge, overvoltage, overcurrent and short circuit and so on. [DIS certified] make sure product quality is safer.<br>
+            -3 Output and 2 Input -Charge 2 Devices At Once】Power bank with 2 Output Ports and 2 Input Ports – USB Output 1: QC 3.0 output, DC 5V/3A, 9V/2A, 12V/1.5A, USB 2 Output: DC 5V/3A. { 2 Input }- Micro USB 1 Input: 5V/3A, 9V/2A, 12V/1.5A, Type C Input/Output: 5V/3A, 9V/2A, 12V/1.5A.Quick Charge 3.0 output combine to deliver an optimized charge to your devices at up to 18W. Compared with non-fast charging power bank, save more than half of the time.<br>
+            -【Universal Compatibility】 Power Bank is universally compatible with all products via USB charging cable, including all iOS and Android smartphones, tablets, other devices and so on uniform quick charging for multiple devices now no more guessing whether need to charge it or not.
+        </p>
+        <a href="#" class="powerBank-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="powerbank-item">
+      <img src="{{ url_for('static', filename='powerbank/Loony 10000mAh Magnetic Wireless Power Bank .jpg') }}" class="powerbank-items">
+      <!-- <img class="powerbank-image" src="powerbank/Loony 10000mAh Magnetic Wireless Power Bank .jpg" alt="powerbank 5"> -->
+      <div class="powerbank-details">
+        <h2 class="powerbank-title">Loony 10000mAh Magnetic Wireless Power Bank </h2>
+        <p class="powerbank-price">RS 2,898</p>
+        <p class="powerbank-features">-Smaller Than Ever: Loony new MiniCell technology delivers identical charging performance with fewer components. This means it's smaller and lighter than ever before.<br>
+          -Pocket-Sized Power: Slim enough to snap to your phone and slip into your pack, purse, or pocket.<br>
+          -Strong Attachment: Equipped with ultra-strong magnets that firmly attach to the back of the iPhone so you can single-handedly take selfies, make calls, watch videos & more.<br>
+          -Inbuilt inclined step stand: Watch content on your iPhone / smartphone while its hooked to Loony magnetic Power Bank Step Stand. Handsfree experience !</p>
+        <a href="#" class="powerBank-button">Place Your Bid</a>
+      </div>
+    </li>
+    <div class="popup-container">
+      <div class="popup-content">
+        <h3 class="popup-title">Place Your Bid</h3>
+        <form onsubmit="submitForm(event)">
+    
+        <label for="name">Name:</label>
+        <input type="text" class="popup-input" id="name" required placeholder="Full Name"><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" class="popup-input" id="email" placeholder="Email" required><br>
+    
+        <label for="phone">Phone:</label>
+        <input type="tel" class="popup-input" id="phone" pattern="[0-9]{10}" placeholder="Phone Number" required><br>
+    
+        <label for="amount">Amount:</label>
+        <input type="number" class="popup-input" id="amount" placeholder="Bid Amount" required><br> 
+        <button class="popup-button" onclick="submitEmail()">Submit</button>
+        <form>
+      </div>
+  </ul>
+  <script >
+    const powerBankButtons = document.querySelectorAll('.powerBank-button');
+    const popupContainer = document.querySelector('.popup-container');
+  
+    function openPopup() {
+      popupContainer.style.display = 'flex';
+    }
+  
+    function closePopup() {
+      popupContainer.style.display = 'none';
+    }
+  
+    powerBankButtons.forEach(button => {
+      button.addEventListener('click', openPopup);
+    });
+  // JavaScript code
+  function submitForm(event) {
+  event.preventDefault();
+  
+  const nameInput = document.getElementById('name');
+  const phoneInput = document.getElementById('phone');
+  const emailInput = document.getElementById('email');
+  const amountInput = document.getElementById('amount');
+  
+  const name = nameInput.value;
+  const phone = phoneInput.value;
+  const email = emailInput.value;
+  const amount = amountInput.value;
+  
+  // Perform form submission logic here (e.g., send form data to server)
+  console.log('Submitted data:', name, phone, email, amount);
+  
+  // Display "Thank you" message
+  const popupContent = document.querySelector('.popup-content');
+  popupContent.innerHTML = '<h3 class="popup-title">Thank you, ' + name + ' Your Bid is recorded!</h3>';
+  
+  setTimeout(closePopup, 2000); // Close the popup after 2 seconds (optional)
+  }
+  
+  
+</script>
+<script src="https://apis.google.com/js/api.js">
+  function saveDataToSheet(name, phone, email, amount) {
+  // Load the Google Sheets API client
+  gapi.load('client', function() {
+    gapi.client.init({
+      apiKey: 'YOUR_API_KEY', // Replace with your API key
+      discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+    }).then(function() {
+      // Authenticate the user
+      return gapi.auth2.getAuthInstance().signIn();
+    }).then(function() {
+      // Get the access token
+      const accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+
+      // Create the data object to be saved
+      const data = [
+        [name, phone, email, amount]
+      ];
+
+      // Call the Google Sheets API to append the data to the sheet
+      return gapi.client.request({
+          
+        path: 'https://sheets.googleapis.com/v4/spreadsheets/1sbm5MebjCAG-RIGj7QVQ9ogfudpDilnUPuPwAXVzYG8/values/Sheet1!A1:D1:append',
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + accessToken,
+        },
+        body: {
+          values: data,
+        },
+        params: {
+          valueInputOption: 'USER_ENTERED',
+        },
+      });
+    }).then(function(response) {
+      console.log('Data saved to Google Sheet:', response.result);
+      // Display "Thank you" message
+      const popupContent = document.querySelector('.popup-content');
+      popupContent.innerHTML = '<h3 class="popup-title">Thank you, ' + name + '! Your bid is recorded!</h3>';
+      setTimeout(closePopup, 2000); // Close the popup after 2 seconds (optional)
+    }).catch(function(error) {
+      console.error('Error saving data to Google Sheet:', error);
+      // Display error message
+      const popupContent = document.querySelector('.popup-content');
+      popupContent.innerHTML = '<h3 class="popup-title">Error saving data. Please try again.</h3>';
+    });
+  });
+}
+function submitForm(event) {
+  event.preventDefault();
+
+  const nameInput = document.getElementById('name');
+  const phoneInput = document.getElementById('phone');
+  const emailInput = document.getElementById('email');
+  const amountInput = document.getElementById('amount');
+
+  const name = nameInput.value;
+  const phone = phoneInput.value;
+  const email = emailInput.value;
+  const amount = amountInput.value;
+
+  saveDataToSheet(name, phone, email, amount);
+}
+
+</script>
+</body>
+</html>

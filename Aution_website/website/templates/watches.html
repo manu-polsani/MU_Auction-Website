@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ 
+<head>
+  <title>watchess</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .watches-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .watches-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .watches-image {
+      width: 250px;
+      margin-right: 20px;
+    }
+    
+    .watches-details {
+      flex-grow: 1;
+    }
+    
+    .watches-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .watches-price {
+      color: #555;
+      margin-bottom: 5px;
+    }
+    
+    .watches-features {
+      color: #888;
+    }
+        /* Popup Styles */
+        .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: none;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .popup-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .popup-input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    
+    .popup-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    /* Popup Styles */
+    .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: none;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .popup-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .popup-input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    
+    .popup-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <!-- <h1>Hello, world!</h1> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Watch</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home.html"home>Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a> -->
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+  <ul class="watches-list">
+    <li class="watches-item">
+      <img src="{{ url_for('static', filename='watches/Kenneth Cole Reaction.jpg') }}" class="watch">
+      <!-- <img class="watches-image" src="watches/Kenneth Cole Reaction.jpg" alt="watches 1"> -->
+      <div class="watches-details">
+        <h2 class="watches-title">Kenneth Cole Reaction</h2>
+        <p class="watches-price">Rs 2,385</p>
+        <p class="watches-features">-Dial Color - green, 3 hands Silicon strap<br>
+            -Watch Movement Type: Quartz, Watch Display Type: Analog<br>
+            -Comfort and Durability: A comfortable sense for your wrist and is easy to match your clothes. Our wristwatches are perfect for the adventurer or the everyday man who is looking for a stylish match to his outfit. We work hours to get a truly amazing and unique product.</p>
+        <a href="#" class="watch-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="watches-item">
+      <img src="{{ url_for('static', filename='watches/Fastrack Reflex Vox Smartwatch.jpg') }}" class="watch">
+      <!-- <img class="watches-image" src="watches/Fastrack Reflex Vox Smartwatch.jpg" alt="watches 2"> -->
+      <div class="watches-details">
+        <h2 class="watches-title">Fastrack Reflex Vox Smartwatch</h2>
+        <p class="watches-price">RS 1,995</p>
+        <p class="watches-features">-[Large HD Display] 1.69" Large Display Screen with premium touch and controls<br>
+          -[Alexa Built-in] Alexa built in voice assistant to set reminders, alarms, add items to shopping list at your command<br>
+          -[Long Battery Life] Super Long 10 days battery life to enjoy all the watch features without any worry<br>
+          -[Complete Health Suite] With 24 X7 Heart rate monitor, SPO2 (Blood Oxygen Level ) Tracker and Menstrual tracker to keep a check on your period cycle</p>
+        <a href="#" class="watch-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="watches-item">
+      <img src="{{ url_for('static', filename='watches/boAt Xtend Smartwatch.jpg') }}" class="watch">
+      <!-- <img class="watches-image" src="watches/boAt Xtend Smartwatch.jpg" alt="watches 3"> -->
+      <div class="watches-details">
+        <h2 class="watches-title">boAt Xtend Smartwatch</h2>
+        <p class="watches-price">RS 2,770</p>
+        <p class="watches-features">-Alexa- Alexa built-in Voice Assistant that sets reminders, alarms and answers questions from weather forecasts to live cricket scores at your command! Volume Control for Music: Yes<br>
+          -Screen Size- ;1.69" big square colour LCD display with a round dial features complete capacitive touch experience to let you take control, effortlessly. Always on display:No, Peak Brightness 500 Nits<br>
+          -Watch Faces- Multiple watch faces with customizable options to match your OOTD, every day!<br>
+          -Brightness- The ambient light display allows automatic adjustment of brightness on the watch, suited to your environment
+  </p>
+        <a href="#" class="watch-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="watches-item">
+      <img src="{{ url_for('static', filename='watches/Casio Youth Series Digital Black Dial Unisex Watch.jpg') }}" class="watch">
+      <!-- <img class="watches-image" src="watches/Casio Youth Series Digital Black Dial Unisex Watch.jpg" alt="watches 4"> -->
+      <div class="watches-details">
+        <h2 class="watches-title">Casio Youth Series Digital Black Dial Unisex Watch</h2>
+        <p class="watches-price">RS 1,095</p>
+        <p class="watches-features">-Dial Color: Black, Case Shape: Rectangular<br>
+          -Band Color: Black, Band Material: Resin<br>
+          -Watch Movement Type: Quartz, Watch Display Type: Digital<br>
+          -Size of case : 38.8*29.8*8.1mm<br>
+          -Water Resistence Depth: 10 meters</p>
+        <a href="#" class="watch-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="watches-item">
+      <img src="{{ url_for('static', filename='watches/TIMEX Analog Womens Watch.jpg') }}" class="watch">
+      <!-- <img class="watches-image" src="watches/TIMEX Analog Women's Watch.jpg" alt="watches 5"> -->
+      <div class="watches-details">
+        <h2 class="watches-title">TIMEX Analog Women's Watch</h2>
+        <p class="watches-price">RS 1,478</p>
+        <p class="watches-features">-Case Shape: Round, Dial Glass Material: Mineral Case Material: Brass, Case Diameter: 35 millimeters<br>
+        -Band Material: Stainless Steel, Attachment Type : Mesh band<br>
+      -Watch Movement Type: Quartz, Watch Display Type: Analog<br>
+    -Water Resistance Depth: 30 meters</p>
+        <a href="#" class="watch-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="watches-item">
+      <img src="{{ url_for('static', filename='watches/Fossil Chronograph White Dial Mens Watch-CH2882.jpg') }}" class="watch">
+      <!-- <img class="watches-image" src="watches/Fossil Chronograph White Dial Men's Watch-CH2882.jpg" alt="watches 5"> -->
+      <div class="watches-details">
+        <h2 class="watches-title">Fossil Chronograph White Dial Men's Watch-CH2882</h2>
+        <p class="watches-price">RS 4,749</p>
+        <p class="watches-features">-Fossil Decker CH2882 Analogue Watch - For Men<br>
+          -Case Material Type: Stainless Steel; Warranty Type: Manufacturer; Item Shape: Round; Band Color: Brown<br>
+          -Band Material Type: Leather; Dial Window Material Type: Mineral; Watch Movement Type: Quartz<br></p>
+        <a href="#" class="watch-button">Place Your Bid</a>
+      </div>
+    </li>
+    <div class="popup-container">
+      <div class="popup-content">
+        <h3 class="popup-title">Place Your Bid</h3>
+        <form onsubmit="submitForm(event)">
+    
+        <label for="name">Name:</label>
+        <input type="text" class="popup-input" id="name" required placeholder="Full Name"><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" class="popup-input" id="email" placeholder="Email" required><br>
+    
+        <label for="phone">Phone:</label>
+        <input type="tel" class="popup-input" id="phone" pattern="[0-9]{10}" placeholder="Phone Number" required><br>
+    
+        <label for="amount">Amount:</label>
+        <input type="number" class="popup-input" id="amount" placeholder="Bid Amount" required><br> 
+        <button class="popup-button" onclick="submitEmail()">Submit</button>
+        <form>
+      </div>
+  </ul>
+<script>
+    const watchButtons = document.querySelectorAll('.watch-button');
+    const popupContainer = document.querySelector('.popup-container');
+  
+    function openPopup() {
+      popupContainer.style.display = 'flex';
+    }
+  
+    function closePopup() {
+      popupContainer.style.display = 'none';
+    }
+  
+    watchButtons.forEach(button => {
+      button.addEventListener('click', openPopup);
+    });
+  // JavaScript code
+  function submitForm(event) {
+  event.preventDefault();
+  
+  const nameInput = document.getElementById('name');
+  const phoneInput = document.getElementById('phone');
+  const emailInput = document.getElementById('email');
+  const amountInput = document.getElementById('amount');
+  
+  const name = nameInput.value;
+  const phone = phoneInput.value;
+  const email = emailInput.value;
+  const amount = amountInput.value;
+  
+  // Perform form submission logic here (e.g., send form data to server)
+  console.log('Submitted data:', name, phone, email, amount);
+  
+  // Display "Thank you" message
+  const popupContent = document.querySelector('.popup-content');
+  popupContent.innerHTML = '<h3 class="popup-title">Thank you, ' + name + ' Your Bid is recorded!</h3>';
+  
+  setTimeout(closePopup, 2000); // Close the popup after 2 seconds (optional)
+  }
+  
+  
+</script>
+</body>
+</html>

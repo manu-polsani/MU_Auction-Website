@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Laptops</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .laptop-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .laptop-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .laptop-image {
+      width: 250px;
+      margin-right: 20px;
+    }
+    
+    .laptop-details {
+      flex-grow: 1;
+    }
+    
+    .laptop-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .laptop-price {
+      color: #555;
+      margin-bottom: 5px;
+    }
+    
+    .laptop-features {
+      color: #888;
+    }
+        /* Popup Styles */
+        .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: none;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .popup-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .popup-input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    
+    .popup-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    /* Popup Styles */
+    .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: none;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .popup-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .popup-input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    
+    .popup-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <!-- <h1>Hello, world!</h1> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Laptops</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a> -->
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <!-- <h1>List of Laptops</h1> -->
+  <ul class="laptop-list">
+    <li class="laptop-item">
+      <img src="{{ url_for('static', filename='laptops/lenovo-laptops-thinkpad-e14-gen-4-14-intel-series.jpeg') }}" class="laptop-image">
+      <!-- <img class="laptop-image" src="laptops/lenovo-laptops-thinkpad-e14-gen-4-14-intel-series.jpeg" alt="lenovo-thinkpad-e14-gen-4-14"> -->
+      <div class="laptop-details">
+        <h2 class="laptop-title">lenovo-thinkpad-e14-gen-4-14</h2>
+        <p class="laptop-price">RS 51,390</p>
+        <p class="laptop-features">Stylish, high-performance 35.6cms (14) business laptop <br>
+            Powered by up to 12th Gen Intel® Core™ i7 processors<br>
+            Plenty of DDR5 memory & SSD storage, optional dual SSD<br></p>
+          <a href="#" class="laptop-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="laptop-item">
+      <img src="{{ url_for('static', filename='laptops/AMD Ryzen 5 5500U.jpg') }}" class="laptop-image">
+      <!-- <img class="laptop-image" src="laptops/HP 15s, AMD Ryzen 5 5500U.jpg" alt="Laptop 2"> -->
+      <div class="laptop-details">
+        <h2 class="laptop-title">HP 15s, AMD Ryzen 5 5500U</h2>
+        <p class="laptop-price">RS 49,490</p>
+        <p class="laptop-features">Processor: AMD Ryzen 5 5500U (up to 4.0 GHz max boost clock(2i), 8 MB L3 cache, 6 cores, 12 threads)|Memory: 8 GB DDR4-3200 SDRAM (1 x 8 GB) Upto 16 GB DDR4-3200 MHz RAM (2 x 8 GB)|Storage: 512 GB PCIe NVMe TLC M.2 SSD<br>
+            Operating System & Preinstalled Software: Windows 11 Home Single Language |Microsoft Office Home & Student 2021<br>
+            Display & Graphics : 39.6 cm (15.6") diagonal, FHD, micro-edge,anti-glare,Brightness: 250 nits, 141 ppi Color Gamut: 45%NTSC Screen Resolution: 1920 x 1080|Graphics: AMD Radeon Graphics</p>
+      <a href="#" class="laptop-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="laptop-item">
+      <img src="{{ url_for('static', filename='laptops/Acer One 14 Business Laptop.jpg') }}" class="laptop-image">
+      <!-- <img class="laptop-image" src="laptops/Acer One 14 Business Laptop.jpg" alt="Laptop 3"> -->
+      <div class="laptop-details">
+        <h2 class="laptop-title">Acer One 14 Business Laptop</h2>
+        <p class="laptop-price">RS 28,990</p>
+        <p class="laptop-features">High Performance : Encounter high speed processing with the AMD Ryzen 3 3250U Processor of 2 cores and up to 3.5GHz of Max Turbo Boost<br>
+            OS : Windows 11 Home, Pre-Installed Software: MS Office Home and Student<br>
+            Various Connectivity Options : HDMI, USB 3.2, Gen 1, Type A & C ports Fast connectivity through Gigabit LAN Two memory DIMM slots for expandibility <br>
+        </p>
+      <a href="#" class="laptop-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="laptop-item">
+      <img src="{{ url_for('static', filename='laptops/ASUS Vivobook 15.jpg') }}" class="laptop-image">
+      <!-- <img class="laptop-image" src="laptops/ASUS Vivobook 15.jpg" alt="Laptop 4"> -->
+      <div class="laptop-details">
+        <h2 class="laptop-title">ASUS Vivobook 15</h2>
+        <p class="laptop-price">RS 49,990</p>
+        <p class="laptop-features">Processor: 12th Gen Intel Core i3-1220P Processor 1.1 GHz (12M Cache, up to 4.4 GHz, 10 cores)<br>
+            Memory: 8GB DDR4 on board 3200MHz with | Storage: 512GB M.2 NVMe PCIe 3.0 SSD<br>
+            Display: 15.6-inch (39.62cm), FHD (1920 x 1080) 16:9 aspect ratio, 220nits, 60Hz refresh rate, 45% NTSC color gamut, Anti-glare display<br>
+            Operating System: Windows 11 Home with Lifetime validity | Software Included: Office Home and Student 2021 included with Lifetime validity
+        </p>
+      <a href="#" class="laptop-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="laptop-item">
+      <img src="{{ url_for('static', filename='laptops/DELL Latitude 5490.jpg') }}" class="laptop-image">
+      <!-- <img class="laptop-image" src="laptops/DELL Latitude 5490.jpg" alt="Laptop 5">
+      <div class="laptop-details"> -->
+        <h2 class="laptop-title">DELL Latitude 5490</h2>
+        <p class="laptop-price">RS 20,449</p>
+        <p class="laptop-features">Processor: Intel Core i5-7300u (2.6 GHz base clock , 6MB Cache)<br>
+            Display: 14-inch FHD (1366 x 768), Slim, anti-glare, 220 nits<br>
+            Memory & Storage: 16 GB DDR4 SDRAM (2 x 8 GB) (Expandable upto 32gb) | 256 GB PCIe M.2 SSD<br>
+            Graphics : Integrated Intel HD Graphics 620<br>
+            Pre-Installed: MS Office 2016 and Windows 11 pro
+        </p>
+      <a href="#" class="laptop-button">Place Your Bid</a>
+      </div>
+    </li>
+    <li class="laptop-item">
+      <img src="{{ url_for('static', filename='laptops/Samsung Galaxy Book3 360.jpg') }}" class="laptop-image">
+      <!-- <img class="laptop-image" src="laptops/Samsung Galaxy Book3 360.jpg" alt="Laptop 6"> -->
+      <div class="laptop-details">
+        <h2 class="laptop-title">Samsung Galaxy Book3 360</h2>
+        <p class="laptop-price">RS 1,17,990</p>
+        <p class="laptop-features">Processor: 13th Generation Intel Core i5-1335U processor (up to 4.6 GHz 12 MB L3 Cache) | Memory: 16 GB LPDDR4x Memory | Storage: 512GB NVMe SSD| Intel Iris Xe Graphics<br>
+            Operating System: Windows 11 Home | Pre-Installed Software: MS Office Home & Student 2021, Galaxy Ecosystem Apps<br>
+            Display: 13.3" (33.78cm) Super Amoled, (1920 x 1080) resolution | 16:9 Aspect Ratio | 500nits HDR | Touchscreen with S-Pen | Design: Aluminum body with 12.9mm thinness and 1.16kg<br>
+            Ports: 1 Thunderbolt 4-USB Type-C, 1 USB Type-C, 1 USB Type-A, 1 HDMI, MicroSD , 1 Headphone out/Mic-in Combo, | Wi-Fi 6E | Without CD-drive |Battery: 61.1 Wh, Charger: 65 W USB Type-C Adapter<br>
+        </p>
+      <a href="#" class="laptop-button">Place Your Bid</a>
+      </div>
+    </li>
+    <div class="popup-container">
+      <div class="popup-content">
+        <h3 class="popup-title">Place Your Bid</h3>
+        <form onsubmit="submitForm(event)">
+    
+        <label for="name">Name:</label>
+        <input type="text" class="popup-input" id="name" required placeholder="Full Name"><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" class="popup-input" id="email" placeholder="Email" required><br>
+    
+        <label for="phone">Phone:</label>
+        <input type="tel" class="popup-input" id="phone" pattern="[0-9]{10}" placeholder="Phone Number" required><br>
+    
+        <label for="amount">Amount:</label>
+        <input type="number" class="popup-input" id="amount" placeholder="Bid Amount" required><br> 
+        <button class="popup-button" onclick="submitEmail()">Submit</button>
+        <form>
+      </div>
+  </ul>
+  <script>
+    const laptopButtons = document.querySelectorAll('.laptop-button');
+    const popupContainer = document.querySelector('.popup-container');
+  
+    function openPopup() {
+      popupContainer.style.display = 'flex';
+    }
+  
+    function closePopup() {
+      popupContainer.style.display = 'none';
+    }
+  
+    laptopButtons.forEach(button => {
+      button.addEventListener('click', openPopup);
+    });
+  // JavaScript code
+  function submitForm(event) {
+  event.preventDefault();
+  
+  const nameInput = document.getElementById('name');
+  const phoneInput = document.getElementById('phone');
+  const emailInput = document.getElementById('email');
+  const amountInput = document.getElementById('amount');
+  
+  const name = nameInput.value;
+  const phone = phoneInput.value;
+  const email = emailInput.value;
+  const amount = amountInput.value;
+  
+  // Perform form submission logic here (e.g., send form data to server)
+  console.log('Submitted data:', name, phone, email, amount);
+  
+  // Display "Thank you" message
+  const popupContent = document.querySelector('.popup-content');
+  popupContent.innerHTML = '<h3 class="popup-title">Thank you, ' + name + ' Your Bid is recorded!</h3>';
+  
+  setTimeout(closePopup, 2000); // Close the popup after 2 seconds (optional)
+  }
+  
+  
+</script>
+</body>
+</html>
